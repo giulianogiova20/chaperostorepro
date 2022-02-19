@@ -102,15 +102,13 @@ function initCatalog(){
             </div>
           </div>
         </div>`)
-        $(`#${elemento.id}`).click((e) => {
-          
+        $(`#${elemento.id}`).click(() => {      
           const product = stock.find(item => item.id === parseInt(elemento.id)) //Busca coincidencia de ID entre el boton y el producto de stock
           console.log('maqStore')
           if (shopCartItems.length === 0 || product.cantidad === undefined) { 
           product.cantidad = 1 // Se setea la cantidad
           }  
           ingresoCarrito(product) // Se ingresa el producto al carrito.
-          e.stopPropagation()
           //ANIMACION AL CLICKEAR AÑADIR
           $(`#prod${elemento.id}`).prepend('<h4 style="display:none" id="popup"> Producto agregado al carrito! </h4>')
           $('h4')

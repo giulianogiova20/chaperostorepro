@@ -1,0 +1,71 @@
+[
+{   "id":101,
+    "nombre":"iPhone 11 Red",
+    "precio":138600,
+    "imagen":"./assets/img/products/iphone11red.jpg",
+    "tipo":"outlet",
+    "cantidad":0
+},
+
+{   "id":102,
+    "nombre":"iPhone XS Black",
+    "precio":122400,
+    "imagen":"./assets/img/products/iphonexsblack.jpg",
+    "tipo":"outlet",
+    "cantidad":0
+},
+
+{   "id":103,
+    "nombre":"iPhone 8 Plus",
+    "precio":79200,
+    "imagen":"./assets/img/products/iphone8plus.jpg",
+    "tipo":"outlet",
+    "cantidad":0
+},
+
+{   "id":201,
+    "nombre":"JBL Flip 5",
+    "precio":17899,
+    "imagen":"./assets/img/products/flip5.jpg",
+    "tipo":"accesorio",
+    "cantidad":0
+},
+
+{   "id":202,
+    "nombre":"Cable iPhone 2M Lightnin",
+    "precio":1100,
+    "imagen":"./assets/img/products/cableiphone.jpg",
+    "tipo":"accesorio",
+    "cantidad":0
+},
+
+{   "id":203,
+    "nombre":"Samsung Cargador Tipo C con cable",
+    "precio":3290,
+    "imagen":"./assets/img/products/cargadorsamsung.jpg",
+    "tipo":"accesorio",
+    "cantidad":0},
+
+{   "id":301,
+    "nombre":"Mouse Redragon M610 Gainer",
+    "precio":2089,
+    "imagen":"./assets/img/products/mouse610.jpg",
+    "tipo":"cbagamer",
+    "cantidad":0
+},
+
+{   "id":302,
+    "nombre":"Mouse Redragon M715 Dagger RGB USB",
+    "precio":2829,
+    "imagen":"./assets/img/products/mouse715.jpg",
+    "tipo":"cbagamer",
+    "cantidad":0},
+
+{   "id":303,
+    "nombre":"Mouse Logitech M170 Inalambrico",
+    "precio":979,
+    "imagen":"./assets/img/products/logitech170.jpg",
+    "tipo":"cbagamer",
+    "cantidad":0
+}
+]

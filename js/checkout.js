@@ -13,17 +13,17 @@ const borrarItem = () => {
           e.stopPropagation() // Se detiene la propagacion del evento.
           let deleteItem = parseInt(btn.id) // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
           shopCartItems = JSON.parse(localStorage.getItem('shopCartItems')) // Se lee el array almacenado en el localStorage.
-          const DeleteItem = shopCartItems.findIndex(item => item.id === deleteItem);
+          const DeleteItem = shopCartItems.findIndex(item => item.id === deleteItem)
           shopCartItems.splice(DeleteItem, 1) // Se ejecuta el borrado.           
           localStorage.setItem('shopCartItems', JSON.stringify(shopCartItems)) // Se almacena el array con el item borrado. 
           renderizarCarrito() // Se recarga la pagina.  
       })
   })
-}; 
+}
 
-//**FUNCIÓN MONTO TOTAL PRODUCTOS EN CARRITO */
+//FUNCIÓN MONTO TOTAL PRODUCTOS EN CARRITO */
 const montoTotalProductos = () => {
-  let total = 0;
+  let total = 0
   if (shopCartItems.length != 0) {
       shopCartItems.forEach(item => {
           total += item.precio * item.cantidad //  Se suman los montos en cada iteracion en el carrito.
@@ -36,12 +36,12 @@ const montoTotalProductos = () => {
     }
 }
 
-//**FUNCIÓN TOTAL A PAGAR EN 3 CUOTAS */
+//FUNCIÓN TOTAL A PAGAR EN 3 CUOTAS */
 const total3Cuotas = (dato) => {
   let total = 0
   if (shopCartItems.length != 0) {
       shopCartItems.forEach(item => {
-          total += item.precio * item.cantidad; //  Se suman los montos en cada iteracion en el carrito.
+          total += item.precio * item.cantidad //  Se suman los montos en cada iteracion en el carrito.
       })
       total = total / 3
       total = darFormatoMoneda(total, 0)
@@ -52,12 +52,12 @@ const total3Cuotas = (dato) => {
   }
 }
 
-//**FUNCIÓN TOTAL A PAGAR EN 6 CUOTAS */
+// FUNCIÓN TOTAL A PAGAR EN 6 CUOTAS 
 const total6Cuotas = (dato) => {
   let total = 0
   if (shopCartItems.length != 0) {
       shopCartItems.forEach(item => {
-          total += item.precio * item.cantidad; //  Se suman los montos en cada iteracion en el carrito.
+          total += item.precio * item.cantidad //  Se suman los montos en cada iteracion en el carrito.
       })
       total = (total / 6) * 1.15
       total = darFormatoMoneda(total, 0)
@@ -69,7 +69,7 @@ const total6Cuotas = (dato) => {
 }
 
   
-  //**FUNCIÓN DE INGRESO PRODUCTO SELECCIONADO AL CARRITO */
+  // FUNCIÓN DE INGRESO PRODUCTO SELECCIONADO AL CARRITO
   
   export const ingresoCarrito = (item) => {
     let products
@@ -82,7 +82,7 @@ const total6Cuotas = (dato) => {
             } else {
                 return product // Devuelve le item con el parametro cantidad sin modificar.
             }
-        });
+        })
         shopCartItems = [...products] // Se actualiza el array de productos.
     } else {
           item.cantidad = 1
@@ -95,11 +95,11 @@ const total6Cuotas = (dato) => {
 
   //FUNCION PARA INCREMENTAR O DECREMENTAR LA CANTIDAD DE ITEMS MEDIANTE BOTONES
   const cambiarCantidad = () => {
-    const btnQuantity = document.querySelectorAll('.btn-cantidad');
+    const btnQuantity = document.querySelectorAll('.btn-cantidad')
     btnQuantity.forEach(btn => {   // Se recorren y se escucha si alguno fue pulsado
         btn.addEventListener('click', (e) => {  // Se escucha el evento click sobre el boton.
             e.stopPropagation() // Se detiene la propagacion del evento.
-            let itemChange = parseInt(btn.id); // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
+            let itemChange = parseInt(btn.id) // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
             if (e.target.classList.contains('btn-sumar')) { // Se verifica si el boton fue pulsado para incrementar o decrementar.
                 shopCartItems = JSON.parse(localStorage.getItem('shopCartItems')) // Se lee el array almacenado en el localStorage.
                 const product = shopCartItems.find(item => item.id === itemChange)
@@ -118,13 +118,13 @@ const total6Cuotas = (dato) => {
         }
         )
     })
-};
+}
 
 
-//**FUNCION BORRADO TOTAL */
+// FUNCION PARA BORRAR EL CARRITO AL CLICKEAR EN "COMPRAR"
 const checkBorradoTotal = () => {
   const radioInputClickCkeck = document.querySelectorAll('.paymentP') // Se seleccionan los radio inputs
-  const btnDeleteTotal = document.querySelector('#deleteAll')
+  const btnDeleteTotal = document.querySelector('#deleteAll') //Se selecciona la parte del DOM que tiene el boton Comprar
   
   radioInputClickCkeck.forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -135,8 +135,9 @@ const checkBorradoTotal = () => {
           }else{btnDeleteTotal.style.display="none"} 
       }) 
   })
+
+  //Animacion al dar click en Comprar
   $("#deleteAll").click((e) => { 
-      /* alert('COMPRA EXITOSA!\n\nNos comunicaremos con ud. para coordinar el pago!') */
       $('body').prepend('<div id="popup2"> COMPRA EXITOSA! <br>Nos contactaremos con ud. para coordinar el pago </div>')
       $('#popup2')
       .fadeIn(2500)
@@ -148,27 +149,25 @@ const checkBorradoTotal = () => {
   })
 }
   
-  // AGREGAR AL HTML
+  // MAQUETAR CARRITO ////
 const renderizarCarrito = () => {
-    const cartContainer = document.querySelector('.carrito')
-    const totalAmount = document.querySelector('#shoppingCartTotal')
-    const divOrderCheckout = document.querySelector('#ordercheckout')
+    const cartContainer = document.querySelector('.carrito') //Se selecciona el carrito
+    const divOrderCheckout = document.querySelector('#ordercheckout') //Se selecciona el div del menu de pago
 
     cartContainer.innerHTML = "" // Se limpia el contenido del DOM.
-    divOrderCheckout.innerHTML = "" 
-    /* totalAmount.innerHTML = ""  */ // Se limpia el contenido del DOM.
+    divOrderCheckout.innerHTML = "" // Se limpia el contenido del DOM.
 
     const carroVacio = document.querySelector('#carro-vacio')
     if (shopCartItems.length === 0) { // Se muestra un alerta si el carrito esta vacio.
       carroVacio.innerHTML = `Tu carrito esta vacío, comienza agregando productos. <a href="./store.html">Ir a tienda ></a>`
-      divOrderCheckout.innerHTML = ""
+      divOrderCheckout.innerHTML = "" //Se oculta el menú de pago
        
     } else {
       carroVacio.innerHTML = ``// Se oculta el alerta si el carrito no esta vacio.
       shopCartItems.forEach((item) => {
-        const { id, nombre, precio, imagen, tipo, cantidad } = item; // Se obtienen los datos del product.
-        const precioFormateado = darFormatoMoneda(precio, 0); // Se formatea el precio.
-        const precioPorCantidad = darFormatoMoneda(precio * cantidad, 0); // Se calcula el precio por cantidad.
+        const { id, nombre, precio, imagen, tipo, cantidad } = item // Se obtienen los datos del product.
+        const precioFormateado = darFormatoMoneda(precio, 0) // Se formatea el precio.
+        const precioPorCantidad = darFormatoMoneda(precio * cantidad, 0) // Se calcula el precio por cantidad.
         cartContainer.innerHTML += `
         <div class="media">
     
@@ -204,8 +203,7 @@ const renderizarCarrito = () => {
       `
       })
 
-     // Se muestra el monto total de los productos en el DOM.
-
+      // Se imprime el menú de pago
     divOrderCheckout.innerHTML= `
     <div>
         <div class="col-xs-12 col-sm-8">
@@ -260,6 +258,6 @@ const renderizarCarrito = () => {
   cambiarCantidad()
 }
 
-
+//INICIAMOS EL CARRITO
 renderizarCarrito()
 

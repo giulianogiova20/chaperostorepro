@@ -374,6 +374,9 @@
 			margin: 0;
 			text-align: center;
 		}
+		.carousel > .items > .item h2.trecepro {
+			text-align: start;
+		} 
 
 		.carousel > .items > .item .blue { background-color: transparent; border-color: transparent; }
 		.carousel > .items > .item .orange { background-color: transparent; border-color: transparent; }

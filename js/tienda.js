@@ -18,10 +18,10 @@ const borrarItem = () => {
         btn.addEventListener('click', (e) => {  // Se escucha el evento click sobre el boton.
             e.stopPropagation() // Se detiene la propagacion del evento.
             let deleteItem = parseInt(btn.id) // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
-            const btnAdd = document.querySelector(`.btn-agregar[id="${deleteItem}"]`); // Se selecciona el boton de agregar con el mismo código de producto.
-            activarDesactivarBtn(btnAdd, true); // Se activa el boton de agregar al quitar el producto del carrito.
+            const btnAdd = document.querySelector(`.btn-agregar[id="${deleteItem}"]`) // Se selecciona el boton de agregar con el mismo código de producto.
+            activarDesactivarBtn(btnAdd, true) // Se activa el boton de agregar al quitar el producto del carrito.
             shopCartItems = JSON.parse(localStorage.getItem('shopCartItems')) // Se lee el array almacenado en el localStorage.
-            const DeleteItem = shopCartItems.findIndex(item => item.id === deleteItem);
+            const DeleteItem = shopCartItems.findIndex(item => item.id === deleteItem)
             shopCartItems.splice(DeleteItem, 1) // Se ejecuta el borrado.           
             guardarLocal('shopCartItems', JSON.stringify(shopCartItems)) // Se almacena el array con el item borrado. 
             renderizarCarrito() // Se recarga la pagina. 
@@ -37,15 +37,15 @@ const ingresoCarrito = (item) => {
     if (itemExistsInCart) {
         products = shopCartItems.map(product => { // Se recorre el array de productos para actualizar la cantidad.
             if (product.id === item.id) {
-                product.cantidad++
+                product.cantidad++  //Si encuentra el producto en el carrito aumenta la cantidad
                 return product // Devuelve el item con el parametro cantidad modificada.
             } else {
                 return product // Devuelve le item con el parametro cantidad sin modificar.
             }
-        });
+        })
         shopCartItems = [...products] // Se actualiza el array de productos.
     } else {
-          item.cantidad = 1
+          item.cantidad = 1 //Si no existe en el carrito se le coloca cantidad 1
           shopCartItems = [...shopCartItems, item] // Se agrega el item al array de carrito.
     }
     guardarLocal('shopCartItems', JSON.stringify(shopCartItems)) // Se almacena en el localStorage el nuevo objeto-item creado.
@@ -54,11 +54,11 @@ const ingresoCarrito = (item) => {
 
 //FUNCION PARA INCREMENTAR O DECREMENTAR LA CANTIDAD DE ITEMS MEDIANTE BOTONES
 const cambiarCantidad = () => {
-    const btnQuantity = document.querySelectorAll('.btn-cantidad');
+    const btnQuantity = document.querySelectorAll('.btn-cantidad')
     btnQuantity.forEach(btn => {   // Se recorren y se escucha si alguno fue pulsado
         btn.addEventListener('click', (e) => {  // Se escucha el evento click sobre el boton.
             e.stopPropagation() // Se detiene la propagacion del evento.
-            let itemChange = parseInt(btn.id); // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
+            let itemChange = parseInt(btn.id) // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
             if (e.target.classList.contains('btn-sumar')) { // Se verifica si el boton fue pulsado para incrementar o decrementar.
                 shopCartItems = JSON.parse(localStorage.getItem('shopCartItems')) // Se lee el array almacenado en el localStorage.
                 const product = shopCartItems.find(item => item.id === itemChange)
@@ -76,7 +76,7 @@ const cambiarCantidad = () => {
         }
         )
     })
-};
+}
     
 
 
@@ -102,7 +102,7 @@ function initCatalog(){
             </div>
           </div>
         </div>`)
-      checkeoBotones(elemento)
+      checkeoBotones(elemento) //Funcion que checkea el estado con el que tienen que iniciar los botones al cargar la pagina
 
       }
       detectarBotones(stock)
@@ -124,6 +124,8 @@ const detectarBotones = (stock) => {
               product.cantidad = 1
           }
           ingresoCarrito(product) // Se ingresa el producto al carrito.
+
+          //Funcion que hace la animacion de elemento añadido al carrito
           $(`#prod${btn.id}`).prepend('<h4 style="display:none" id="popup"> Producto agregado al carrito! </h4>')
           $('h4')
           .fadeIn(1500)
@@ -147,11 +149,11 @@ const checkeoBotones = (elemento)=>{
 const activarDesactivarBtn = (btn, activate) => {
 
   if (activate) {
-      btn.disabled = false;
+      btn.disabled = false
       btn.innerHTML = '<ion-icon name="cart-outline"></ion-icon> Añadir'
       btn.className = 'btn btn-primary btn-sm rounded btn-agregar'
   } else {
-      btn.disabled = true;
+      btn.disabled = true
       btn.innerHTML = 'Añadido'
       btn.className = 'background-disabled btn btn-primary btn-sm rounded btn-agregar'
   }
@@ -176,9 +178,8 @@ const renderizarCarrito = () => {
   const divOrderCheckout = document.querySelector('.checkout')
   const cartQty = document.querySelector('#cartDropdown')
   cartContainer.innerHTML = "" // Se limpia el contenido del DOM.
-  divOrderCheckout.innerHTML = "" 
+  divOrderCheckout.innerHTML = "" // Se limpia el contenido del DOM
   cartQty.innerHTML = ""  // Se limpia el contenido del DOM.
-  /* totalQuantity.innerHTML = "" */ // Se limpia el contenido del DOM.
 
   const carroVacio = document.querySelector('#carro-vacio')
   if (shopCartItems.length === 0) { 
@@ -190,9 +191,9 @@ const renderizarCarrito = () => {
   } else {
     carroVacio.innerHTML = ``// Se oculta el alerta si el carrito no esta vacio.
     shopCartItems.forEach((item) => {
-      const { id, nombre, precio, imagen, tipo, cantidad } = item; // Se obtienen los datos del product.
-      const precioFormateado = darFormatoMoneda(precio, 0); // Se formatea el precio.
-      const precioPorCantidad = darFormatoMoneda(precio * cantidad, 0); // Se calcula el precio por cantidad.
+      const { id, nombre, precio, imagen, tipo, cantidad } = item // Se obtienen los datos del product.
+      const precioFormateado = darFormatoMoneda(precio, 0) // Se formatea el precio.
+      const precioPorCantidad = darFormatoMoneda(precio * cantidad, 0) // Se calcula el precio por cantidad.
       cartContainer.innerHTML += `
       <div class="media">
   

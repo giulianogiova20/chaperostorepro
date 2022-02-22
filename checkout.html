@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Checkout Order &middot; Chapero Store</title>
+    <title> Confirmar Compra &middot; Chapero Store PRO</title>
 
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -46,7 +46,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="./index.html"> Chapero Store Pro </a>
-          <a class="navbar-brand pull-right hidden-sm hidden-md hidden-lg" href="#open-cart"> <i class="ion-bag"></i> 7 </a>
+          <a class="navbar-brand pull-right hidden-sm hidden-md hidden-lg" href="#open-cart"> <ion-icon name="cart-outline"></ion-icon>  </a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
@@ -54,7 +54,6 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./store.html">Tienda</a></li>
             <li><a href="./servicecenter.html">Service Center</a></li>
-            <li><a href="">Nosotros</a></li>
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -63,7 +62,7 @@
           <div class="input">
             <button type="button"><ion-icon name="search"></ion-icon></button>
 
-            <input type="text" name="search" value="" placeholder="Escriba aquí..." />
+            <!-- <input type="text" name="search" value="" placeholder="Escriba aquí..." /> -->
           </div>
         </div>
       </div><!--/.container-fluid -->
@@ -73,7 +72,7 @@
 
     <div class="white">
         <div class="container checkout">
-            <h1>Checkout order</h1>
+            <h1>Confirmar Orden</h1>
             <hr class="offset-sm">
         </div>
     </div>
@@ -85,18 +84,18 @@
         <div class="row">
             <div class="col-md-6">
                   <div class="row group">
-                    <div class="col-sm-4"><h2 class="h4">Receiver</h2></div>
-                    <div class="col-sm-8"> <input type="text" class="form-control" name="receiver" value="John Doe" required="" placeholder="" /></div>
+                    <div class="col-sm-4"><h2 class="h4">Receptor</h2></div>
+                    <div class="col-sm-8"> <input type="text" class="form-control" name="receiver" value="Nombre y Apellido" required="" placeholder="" /></div>
                   </div>
 
                   <div class="row group">
-                    <div class="col-sm-4"><h2 class="h4">Phone</h2></div>
-                    <div class="col-sm-8"> <input type="text" class="form-control" name="phone" value="+45 (555) 8546-25-77" required="" placeholder="" /></div>
+                    <div class="col-sm-4"><h2 class="h4">Teléfono</h2></div>
+                    <div class="col-sm-8"> <input type="text" class="form-control" name="phone" value="123 4567890 " required="" placeholder="" /></div>
                   </div>
 
                   <div class="row group">
                     <div class="col-sm-4"><h2 class="h4">E-mail</h2></div>
-                    <div class="col-sm-8"> <input type="email" class="form-control" name="email" value="john@yahoo.com" required="" placeholder="" /></div>
+                    <div class="col-sm-8"> <input type="email" class="form-control" name="email" value="chaperosotre@gmail.com" required="" placeholder="" /></div>
                   </div>
 
 
@@ -105,22 +104,22 @@
                   <div class="">
                     <div class="row">
                       <div class="col-sm-4">
-                        <h2 class="h4">City</h2>
+                        <h2 class="h4">Ciudad</h2>
 
                         <input type="text" class="form-control" name="city" value="" required="" placeholder="" />
                       </div>
                       <div class="col-sm-4">
-                        <h2 class="h4">Street</h2>
+                        <h2 class="h4">Calle</h2>
 
                         <input type="text" class="form-control" name="street" value="" required="" placeholder="" />
                       </div>
                       <div class="col-sm-2">
-                        <h2 class="h4">Building</h2>
+                        <h2 class="h4">Edificio</h2>
 
                         <input type="text" class="form-control" name="bilding" value="" required="" placeholder="" />
                       </div>
                       <div class="col-sm-2">
-                        <h2 class="h4">Zip</h2>
+                        <h2 class="h4">CP</h2>
 
                         <input type="text" class="form-control" name="zip" value="" required="" placeholder="" />
                       </div>
@@ -130,24 +129,7 @@
 
 
                   <div class="row group">
-                    <div class="col-sm-4"><h2 class="h4">Payment</h2></div>
-                    <div class="col-sm-8">
-                      <div class="group-select justify" tabindex='1'>
-                          <input class="form-control select" id="payment" name="payment" value="Cash on Delivery" placeholder="" required="" />
-
-                          <ul class="dropdown">
-                            <li data-value="Cash on Delivery">Cash on Delivery</li>
-                            <li data-value="Credit Card">Credit Card</li>
-                            <li data-value="Paypall">Paypall</li>
-                          </ul>
-
-                          <div class="arrow bold"><i class="ion-chevron-down"></i></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row group">
-                    <div class="col-sm-4"><h2 class="h4">Promo code</h2></div>
+                    <div class="col-sm-4"><h2 class="h4">Código promocional</h2></div>
                     <div class="col-sm-8"> <input type="text" class="form-control" name="promo" value="" required="" placeholder="" /></div>
                   </div>
 
@@ -271,11 +253,12 @@
               </div>
           </div>
         </div>
+        
         <!-- END NEWSLETTER -->
         <div class="container">
           <div class="row menu">
             <div class="col-sm-3 col-md-2 ms-4">
-              <h1 class="h4">Información <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+              <h1 class="h4">Información <ion-icon name="add-outline" class="hidden-sm hidden-md hidden-lg"></ion-icon> </h1>
               <div class="list-group">
                 <a href="#" class="list-group-item">Nosotros</a>
                 <a href="#" class="list-group-item">Términos</a>
@@ -284,7 +267,7 @@
               </div>
             </div>
             <div class="col-sm-3 col-md-2 ms-4">
-              <h1 class="h4">Productos <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+              <h1 class="h4">Productos <ion-icon name="add-outline" class="hidden-sm hidden-md hidden-lg"></ion-icon> </h1>
               <div class="list-group">
                 <a href="#" class="list-group-item">Outlet</a>
                 <a href="#" class="list-group-item">Cba Gamer</a>
@@ -292,7 +275,7 @@
               </div>
             </div>
             <div class="col-sm-3 col-md-2 ms-4">
-              <h1 class="h4">Soporte <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+              <h1 class="h4">Soporte <ion-icon name="add-outline" class="hidden-sm hidden-md hidden-lg"></ion-icon> </h1>
               <div class="list-group">
                 <a href="#" class="list-group-item">Devoluciones</a>
                 <a href="#" class="list-group-item">Preguntas Frecuentes</a>
@@ -303,9 +286,9 @@
             <div class="col-sm-3 col-md-3 align-right hidden-sm hidden-xs">
               <h1 class="h4">Chapero Store PRO</h1>
                 <address>
-                  1305 Market Street, Suite 800<br>
-                  San Francisco, CA 94102<br>
-                  <abbr title="Phone">P:</abbr> (123) 456-7890
+                  Paraná 635 - Planta Baja B<br>
+                  Córdoba - CP:5000<br>
+                  <abbr>Tel:</abbr>  351-6645678
                 </address>
                 <address>
                   <strong>Soporte</strong><br>
@@ -323,28 +306,28 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><ion-icon name="close-outline"></ion-icon></i></span></button>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                  <h2 class="modal-title text-center">Sign In</h2>
+                  <h2 class="modal-title text-center">Iniciar Sesión</h2>
                   <br>
 
                   <form class="signin" action="index.php" method="post">
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
-                    <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
+                    <input type="password" name="password" value="" placeholder="Password" autocomplete="on" required="" class="form-control" />
                     <br>
 
                     <button type="submit" class="btn btn-primary">Ok</button>
-                    <a href="#forgin-password" data-action="Forgot-Password">Password recovery ></a>
+                    <a href="#forgin-password" data-action="Forgot-Password">Recuperar contraseña ></a>
                   </form>
                   <br>
 
                   <div class="social-login">
-                      <div class="or"><p>OR</p></div>
+                      <div class="or"><p>O</p></div>
                       <a href="#"><i class="icon" data-src="./assets/img/icons/facebook.svg"></i></a>
                       <p>via</p>
                       <a href="#"><i class="icon" data-src="./assets/img/icons/google-plus.svg"></i></a>
@@ -364,13 +347,13 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><ion-icon name="close-outline"></ion-icon></i></span></button>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                  <h2 class="modal-title text-center">Registration</h2>
+                  <h2 class="modal-title text-center">Registrarse</h2>
                   <br>
 
                   <form class="join" action="index.php" method="post">
@@ -380,18 +363,17 @@
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
 
-                    <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
+                    <input type="password" name="password" value="" autocomplete="on" placeholder="Password" required="" class="form-control" />
                     <br>
 
                     <input type="text" name="confirm" value="" placeholder="Password again" required="" class="form-control" />
                     <br>
 
                     <button type="submit" class="btn btn-primary btn-sm">Ok</button> &nbsp;&nbsp;
-                    <a href="#">Terms ></a>
+                    <a href="#">Términos ></a>
 
                     <br><br>
-                    <p>
-                      By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
+                    <p>Al crear una cuenta, podrá comprar más rápido, estar actualizado sobre el estado de un pedido y realizar un seguimiento de los pedidos que ha realizado anteriormente.
                     </p>
                   </form>
                 </div>
@@ -408,45 +390,31 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><ion-icon name="close-outline"></ion-icon></i></span></button>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <h4 class="modal-title">Forgot Your Password?</h4>
+                  <h4 class="modal-title">Olvidaste tu contraseña?</h4>
                   <br>
 
                   <form class="join" action="index.php" method="post">
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
 
-                    <button type="submit" class="btn btn-primary btn-sm">Continue</button>
-                    <a href="#Sign-In" data-action="Sign-In">Back ></a>
+                    <button type="submit" class="btn btn-primary btn-sm">Continuar</button>
+                    <a href="#Sign-In" data-action="Sign-In">volver ></a>
                   </form>
                 </div>
                 <div class="col-sm-6">
                   <br><br>
                   <p>
-                    Enter the e-mail address associated with your account. Click submit to have your password e-mailed to you.
+                    Introduzca la dirección de correo electrónico asociada a su cuenta. Haga clic en enviar para que le enviemos su contraseña por correo electrónico.
                   </p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="modal-footer">
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
-          </div>
-          <div class="modal-body">
           </div>
           <div class="modal-footer">
           </div>

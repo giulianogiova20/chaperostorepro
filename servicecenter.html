@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Contacts &middot; Unistore Pro &middot; Premium Responsive E-Commerce Template </title>
+    <title> Service Center &middot; Chapero Store Pro</title>
 
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -16,11 +16,10 @@
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
     <link href="./assets/css/custom.css" rel="stylesheet">
     <link href="./assets/css/carousel.css" rel="stylesheet">
-    <link href="./assets/ionicons-2.0.1/css/ionicons.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link href='https://fonts.googleapis.com/css?family=Catamaran:400,100,300' rel='stylesheet' type='text/css'>
 
-    <link href="./assets/css/custom-scroll/jquery.mCustomScrollbar.css" rel="stylesheet">
+<!--     <link href="./assets/css/custom-scroll/jquery.mCustomScrollbar.css" rel="stylesheet"> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +45,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="./"> Chapero Store Pro </a>
-          <a class="navbar-brand pull-right hidden-sm hidden-md hidden-lg" href="#open-cart"> <i class="ion-bag"></i> 7 </a>
+          <a class="navbar-brand pull-right hidden-sm hidden-md hidden-lg" href="#open-cart"> <ion-icon name="cart-outline"></ion-icon>  </a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
@@ -54,7 +53,6 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./store.html">Tienda</a></li>
             <li class="active"><a href="./servicecenter.html">Service Center</a></li>
-            <li><a href="">Nosotros</a></li>
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -62,66 +60,65 @@
         <div class="search hidden-xs" data-style="hidden">
           <div class="input">
             <button type="button"><ion-icon name="search"></ion-icon></button>
-
-            <input type="text" name="search" value="" placeholder="Escriba aquí..." />
           </div>
         </div>
       </div><!--/.container-fluid -->
     </nav>
 
-    <hr class="offset-top">
+    <hr class="offset-top bkg-white">
 
     <div class="white">
       <hr class="offset-sm">
 
       <div class="container">
           <div class="row">
+            
             <div class="col-sm-4">
               <div id="Address">
                 <address>
-                  <label class="h3">Unistore Pro, Inc.</label><br>
-                  1305 Market Street, Suite 800<br>
-                  San Francisco, CA 94102<br>
-                  <abbr title="Phone">P:</abbr> (123) 456-7890
+                  <div class="reparacion hidden-xs"><img src="./assets/img/bars/reparacion.jpg" alt="reparacion"></div>
+                  <h2>Hacemos reparaciones:</h2>
+                  <a><h3><ion-icon name="hardware-chip-outline"></ion-icon> Placas</h3></a>
+                  <a><h3><ion-icon name="phone-portrait-outline"></ion-icon> Módulos</h3></a>
+                  <a><h3><ion-icon name="battery-half-outline"></ion-icon> Baterías</h3></a>
+                  <a><h3><ion-icon name="hardware-chip-outline"></ion-icon> Otras consultas</h3></a>
                 </address>
-
                 <address>
-                  <strong>Support</strong><br>
-                  <a href="mailto:#">sup@example.com</a>
+                  <strong><h2 class="hidden-xs">Contáctenos:</h2></strong>
+                  <strong><h2><ion-icon name="logo-whatsapp" size="large"></ion-icon> 351-6645678</h2></strong>
                   <br><br>
-
-                  <strong>Partners</strong><br>
-                  <a href="mailto:#">col@example.com</a>
                 </address>
               </div>
             </div>
             <div class="col-sm-8">
-              <div id="GoMap"></div>
+              <br class="hidden-sm">
+              <hr class="hidden-sm">
+              <h2>Visítenos:</h2>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.5780358186853!2d-64.18266518541762!3d-31.425749981400998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a33f155edf19%3A0x95f0aeca41c00636!2sChaperoServiceCenter!5e0!3m2!1ses-419!2sar!4v1645494949734!5m2!1ses-419!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
       </div>
 
       <hr class="offset-lg">
     </div>
-
+    
     <div class="gray">
       <hr class="offset-lg">
 
       <div class="container align-center">
-        <h1 class="upp"> Need our help? </h1>
-        <p> Please insert question to a form below. </p>
+        <h1 class="upp"> O envíenos su consulta: </h1>
         <hr class="offset-md">
 
         <div class="row">
           <div class="col-sm-4 col-sm-offset-4">
             <form class="contact" action="index.php" method="post">
-              <textarea class="form-control" name="message" placeholder="Message" required="" rows="5"></textarea>
+              <textarea class="form-control" name="message" placeholder="Mensaje" required="" rows="5"></textarea>
               <br>
 
               <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
               <br>
 
-              <button type="submit" class="btn btn-primary justify"> Send question </button>
+              <button type="submit" class="btn btn-primary justify"> Enviar consulta </button>
             </form>
           </div>
         </div>
@@ -205,7 +202,6 @@
               </form>
               <div class="social">
                 <h2>Síguenos</h2>
-                <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
@@ -213,11 +209,12 @@
               </div>
           </div>
         </div>
+
         <!-- END NEWSLETTER -->
         <div class="container">
           <div class="row menu">
             <div class="col-sm-3 col-md-2 ms-4">
-              <h1 class="h4">Información <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+              <h1 class="h4">Información <ion-icon name="add-outline" class="hidden-sm hidden-md hidden-lg"></ion-icon> </h1>
               <div class="list-group">
                 <a href="#" class="list-group-item">Nosotros</a>
                 <a href="#" class="list-group-item">Términos</a>
@@ -226,7 +223,7 @@
               </div>
             </div>
             <div class="col-sm-3 col-md-2 ms-4">
-              <h1 class="h4">Productos <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+              <h1 class="h4">Productos <ion-icon name="add-outline" class="hidden-sm hidden-md hidden-lg"></ion-icon> </h1>
               <div class="list-group">
                 <a href="#" class="list-group-item">Outlet</a>
                 <a href="#" class="list-group-item">Cba Gamer</a>
@@ -234,7 +231,7 @@
               </div>
             </div>
             <div class="col-sm-3 col-md-2 ms-4">
-              <h1 class="h4">Soporte <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+              <h1 class="h4">Soporte <ion-icon name="add-outline" class="hidden-sm hidden-md hidden-lg"></ion-icon> </h1>
               <div class="list-group">
                 <a href="#" class="list-group-item">Devoluciones</a>
                 <a href="#" class="list-group-item">Preguntas Frecuentes</a>
@@ -245,9 +242,9 @@
             <div class="col-sm-3 col-md-3 align-right hidden-sm hidden-xs">
               <h1 class="h4">Chapero Store PRO</h1>
                 <address>
-                  1305 Market Street, Suite 800<br>
-                  San Francisco, CA 94102<br>
-                  <abbr title="Phone">P:</abbr> (123) 456-7890
+                  Paraná 635 - Planta Baja B<br>
+                  Córdoba - CP:5000<br>
+                  <abbr>Tel:</abbr>  351-6645678
                 </address>
                 <address>
                   <strong>Soporte</strong><br>
@@ -265,31 +262,31 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><ion-icon name="close-outline"></ion-icon></i></span></button>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                  <h2 class="modal-title text-center">Sign In</h2>
+                  <h2 class="modal-title text-center">Iniciar Sesión</h2>
                   <br>
 
                   <form class="signin" action="index.php" method="post">
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
-                    <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
+                    <input type="password" name="password" value="" placeholder="Password" autocomplete="on" required="" class="form-control" />
                     <br>
 
                     <button type="submit" class="btn btn-primary">Ok</button>
-                    <a href="#forgin-password" data-action="Forgot-Password">Password recovery ></a>
+                    <a href="#forgin-password" data-action="Forgot-Password">Recuperar contraseña ></a>
                   </form>
                   <br>
 
                   <div class="social-login">
-                      <div class="or"><p>OR</p></div>
-                      <a href="#"><i class="icon" data-src="../assets/img/icons/facebook.svg"></i></a>
+                      <div class="or"><p>O</p></div>
+                      <a href="#"><i class="icon" data-src="./assets/img/icons/facebook.svg"></i></a>
                       <p>via</p>
-                      <a href="#"><i class="icon" data-src="../assets/img/icons/google-plus.svg"></i></a>
+                      <a href="#"><i class="icon" data-src="./assets/img/icons/google-plus.svg"></i></a>
                   </div>
                   <br><br>
                 </div>
@@ -306,13 +303,13 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><ion-icon name="close-outline"></ion-icon></i></span></button>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                  <h2 class="modal-title text-center">Registration</h2>
+                  <h2 class="modal-title text-center">Registrarse</h2>
                   <br>
 
                   <form class="join" action="index.php" method="post">
@@ -322,18 +319,17 @@
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
 
-                    <input type="password" name="password" value="" placeholder="Password" required="" class="form-control" />
+                    <input type="password" name="password" value="" autocomplete="on" placeholder="Password" required="" class="form-control" />
                     <br>
 
                     <input type="text" name="confirm" value="" placeholder="Password again" required="" class="form-control" />
                     <br>
 
                     <button type="submit" class="btn btn-primary btn-sm">Ok</button> &nbsp;&nbsp;
-                    <a href="#">Terms ></a>
+                    <a href="#">Términos ></a>
 
                     <br><br>
-                    <p>
-                      By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
+                    <p>Al crear una cuenta, podrá comprar más rápido, estar actualizado sobre el estado de un pedido y realizar un seguimiento de los pedidos que ha realizado anteriormente.
                     </p>
                   </form>
                 </div>
@@ -350,27 +346,27 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><ion-icon name="close-outline"></ion-icon></i></span></button>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <h4 class="modal-title">Forgot Your Password?</h4>
+                  <h4 class="modal-title">Olvidaste tu contraseña?</h4>
                   <br>
 
                   <form class="join" action="index.php" method="post">
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control" />
                     <br>
 
-                    <button type="submit" class="btn btn-primary btn-sm">Continue</button>
-                    <a href="#Sign-In" data-action="Sign-In">Back ></a>
+                    <button type="submit" class="btn btn-primary btn-sm">Continuar</button>
+                    <a href="#Sign-In" data-action="Sign-In">volver ></a>
                   </form>
                 </div>
                 <div class="col-sm-6">
                   <br><br>
                   <p>
-                    Enter the e-mail address associated with your account. Click submit to have your password e-mailed to you.
+                    Introduzca la dirección de correo electrónico asociada a su cuenta. Haga clic en enviar para que le enviemos su contraseña por correo electrónico.
                   </p>
                 </div>
               </div>
@@ -382,66 +378,25 @@
       </div>
     </div>
 
-    <div class="modal fade" id="Modal-Gallery" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ion-android-close"></i></span></button>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="./assets/js/jquery-latest.min.js"></script>
-
+    <!-- <script src="./assets/js/jquery-latest.min.js"></script> -->
+    
+    
+    
     <!-- Ion Icons -->
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/core.js"></script>
-
+    <!-- <script src="./assets/js/bootstrap.min.js"></script> -->
+    <!-- <script src="./assets/js/core.js"></script> -->
+<!-- 
     <script type="text/javascript" src="./assets/js/custom-scroll/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script type="text/javascript" src="./assets/js/jquery-ui-1.11.4.js"></script>
     <script type="text/javascript" src="./assets/js/jquery.ui.touch-punch.js"></script>
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4aLLXYWiLslF54XA_w9m1IynlKd0-lyE&callback=initMap"></script>
-
-
-    <script>
-      function initMap() {
-        var mapDiv = document.getElementById('GoMap');
-        var markerLatLng = {lat: 37.77610833280797, lng: -122.41745173931122};
-
-        var map = new google.maps.Map(mapDiv, {
-            center: {lat: 37.77610833280797, lng: -122.41745173931122},
-            zoom: 8
-        });
-
-         var marker = new google.maps.Marker({
-          position: markerLatLng,
-          map: map,
-          title: 'Unistore'
-        });
-
-
-        // google.maps.event.addListener(map, "rightclick", function(event) {
-        //     var lat = event.latLng.lat();
-        //     var lng = event.latLng.lng();
-        //     // populate yor box/field with lat, lng
-        //     console.log("Lat=" + lat + "; Lng=" + lng);
-        // });
-
-      }
-    </script>
-
+ -->
+ 
   </body>
 </html>

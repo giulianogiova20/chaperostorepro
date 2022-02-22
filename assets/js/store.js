@@ -1,12 +1,11 @@
 $(document).ready(function(){
 	//Filter
-		$('.filter .item > .controls').on('click', '.checkbox-group', function(){
-			if( $(this).attr('data-status') =='inactive' ){
-				$(this).find('input').prop('checked', true)
-				$(this).attr('data-status','active') }
-			else{
-				$(this).find('input').prop('checked', false)
-				$(this).attr('data-status','inactive') }
+		$('.filter .item > .controls > .checkbox-group').on('click', '.checkbox', function(){
+          $(this).parents('.checkbox-group').append('<h4 style="display:none" id="no-disponible" class="text-center">No disponible por el momento</h4>')
+		  $('h4')
+          .fadeIn(1500)
+            .delay(700)
+            .fadeOut(1500, function(){$(this).remove()})
 		});
 
 
@@ -59,6 +58,7 @@ $(document).ready(function(){
 		//Cart
 		//Toggle
 		setTimeout(function(){ $('body').find('.cart').fadeIn(200); }, 500);
+
 
 		$('a[href="#open-cart"]').on('click', function(){
 			$('body').attr('data-view', 'modal-open');

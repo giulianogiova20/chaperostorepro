@@ -18,6 +18,8 @@ const borrarItem = () => {
         btn.addEventListener('click', (e) => {  // Se escucha el evento click sobre el boton.
             e.stopPropagation() // Se detiene la propagacion del evento.
             let deleteItem = parseInt(btn.id) // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
+            const btnAdd = document.querySelector(`.btn-agregar[id="${deleteItem}"]`); // Se selecciona el boton de agregar con el mismo código de producto.
+            activarDesactivarBtn(btnAdd, true); // Se activa el boton de agregar al quitar el producto del carrito.
             shopCartItems = JSON.parse(localStorage.getItem('shopCartItems')) // Se lee el array almacenado en el localStorage.
             const DeleteItem = shopCartItems.findIndex(item => item.id === deleteItem);
             shopCartItems.splice(DeleteItem, 1) // Se ejecuta el borrado.           
@@ -30,7 +32,6 @@ const borrarItem = () => {
 
 //**FUNCIÓN DE INGRESO PRODUCTO SELECCIONADO AL CARRITO */
 const ingresoCarrito = (item) => {
-    console.log('asd')
     let products
     const itemExistsInCart = shopCartItems.some(product => product.id === item.id) // Revisar si el item ya fue agregado al carrito.
     if (itemExistsInCart) {
@@ -64,7 +65,6 @@ const cambiarCantidad = () => {
                 product.cantidad++ // Se incrementa la cantidad del producto.
                 guardarLocal('shopCartItems', JSON.stringify(shopCartItems))// Se almacena el array con el item borrado.
                 renderizarCarrito()// Se verifica si el boton fue pulsado para incrementar o decrementar.
-    
             } else if (e.target.classList.contains('btn-restar')) {
                 const product = shopCartItems.find(item => item.id === itemChange)
                 if (product.cantidad > 1) {
@@ -85,41 +85,79 @@ function initCatalog(){
   $.getJSON(URLJSON, function (respuesta, estado) {
     if(estado === "success"){
       let stock = respuesta
-      for (const elemento of stock) {
+      for (const elemento of stock) { //Maqueto cada item que haya en stock
         $('.products').append(
           `<div class="col-sm-6 col-md-4 product" id="prod${elemento.id}">
             <div class="body">
-            <a href="./"><img src=${elemento.imagen} /></a>
+            <a><img src=${elemento.imagen} /></a>
 
             <div class="content">
               <h1 class="h3">${elemento.nombre}</h1>
               <p class="price">$${elemento.precio}</p>
               <label>${elemento.tipo}</label>
               <div>
-              <button class="btn btn-link"><ion-icon name="folder-open-outline"></ion-icon>Detalles</button>
-              <button id="${elemento.id}" class="btn btn-primary btn-sm rounded"> <ion-icon name="cart-outline"></ion-icon> Añadir</button>
+              <a class="btn btn-link"><ion-icon name="folder-open-outline"></ion-icon>Detalles</a>
+              <button id="${elemento.id}" class="btn btn-primary btn-sm rounded btn-agregar"> <ion-icon name="cart-outline"></ion-icon> Añadir</button>
               </div>
             </div>
           </div>
         </div>`)
-        $(`#${elemento.id}`).click(() => {      
-          const product = stock.find(item => item.id === parseInt(elemento.id)) //Busca coincidencia de ID entre el boton y el producto de stock
-          console.log('maqStore')
-          if (shopCartItems.length === 0 || product.cantidad === undefined) { 
-          product.cantidad = 1 // Se setea la cantidad
-          }  
+      checkeoBotones(elemento)
+
+      }
+      detectarBotones(stock)
+    }
+  })
+}
+
+// FUNCION QUE DETECTA SI ALGUN BOTON DE AGREGAR FUE PULSADO
+const detectarBotones = (stock) => {
+  const buttons = document.querySelectorAll('.product button')
+  buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          e.stopPropagation()
+          activarDesactivarBtn(btn, false)
+          const product = stock.find(item => item.id === parseInt(btn.id))
+
+          if (shopCartItems.length === 0 || product.cantidad === undefined) { // Se agrega el producto al carrito.
+
+              product.cantidad = 1
+          }
           ingresoCarrito(product) // Se ingresa el producto al carrito.
-          //ANIMACION AL CLICKEAR AÑADIR
-          $(`#prod${elemento.id}`).prepend('<h4 style="display:none" id="popup"> Producto agregado al carrito! </h4>')
+          $(`#prod${btn.id}`).prepend('<h4 style="display:none" id="popup"> Producto agregado al carrito! </h4>')
           $('h4')
           .fadeIn(1500)
             .delay(700)
             .fadeOut(1500, function(){$(this).remove()})
-        })
-      }
-    }
+      })
   })
 }
+
+//FUNCION PARA CHECKEAR SI ALGUN ELEMENTO ESTÁ EN EL CARRITO Y DESHABILITAR EL BOTON AÑADIR
+const checkeoBotones = (elemento)=>{
+     shopCartItems.map(product => { // Se recorre el array de productos del carrito.
+      if(product.id === elemento.id){
+      const btnAdd = document.querySelector(`.btn-agregar[id="${elemento.id}"]`) // Se selecciona el boton de agregar con el mismo código de producto.
+      activarDesactivarBtn(btnAdd, false) // Se envía el boton a desactivar.
+      }    
+    })
+    }
+  
+// FUNCION PARA HABILITAR/DESHABILITAR EL BOTON AGREGAR
+const activarDesactivarBtn = (btn, activate) => {
+
+  if (activate) {
+      btn.disabled = false;
+      btn.innerHTML = '<ion-icon name="cart-outline"></ion-icon> Añadir'
+      btn.className = 'btn btn-primary btn-sm rounded btn-agregar'
+  } else {
+      btn.disabled = true;
+      btn.innerHTML = 'Añadido'
+      btn.className = 'background-disabled btn btn-primary btn-sm rounded btn-agregar'
+  }
+}
+
+
 
 // FUNCION PARA DIBUJAR LA CANTIDAD DE PRODUCTOS AGREGADOS AL CARRITO
 const cantidadTotalProductos = () => {
@@ -143,8 +181,8 @@ const renderizarCarrito = () => {
   /* totalQuantity.innerHTML = "" */ // Se limpia el contenido del DOM.
 
   const carroVacio = document.querySelector('#carro-vacio')
-  if (shopCartItems.length === 0) { // Se muestra un alerta si el carrito esta vacio.
-    carroVacio.innerHTML = `Tu carrito esta vacío, comienza agregando productos`
+  if (shopCartItems.length === 0) { 
+    carroVacio.innerHTML = `Tu carrito esta vacío, comienza agregando productos` //Se muestra el mensaje de carro vacio
     divOrderCheckout.innerHTML = "" //No se muestra el boton de "Ir a Pagar"
 
     cartQty.innerHTML = `<ion-icon name="cart-outline"></ion-icon>` //Se imprime solo el icono del carrito
@@ -192,15 +230,15 @@ const renderizarCarrito = () => {
   //Se renderiza el ícono de carrito con la cantidad actualizada
   cartQty.innerHTML =`<div><p class="cantidad-carrito">${cantidadTotalProductos()}</p><ion-icon name="cart-outline" size="large"></ion-icon></div>`
 
-
-  divOrderCheckout.innerHTML = `          
+  //Maqueto el boton comprar si hay items en el carrito
+  divOrderCheckout.innerHTML += `          
   <div class="row">
     <div class="col-xs-12 col-sm-12 align-right">
       <a class="btn btn-primary" href="./checkout.html"> Ir a Pagar </a>
     </div>
   </div>
   `
-  //Maqueto el boton comprar si hay items en el carrito
+  
   }
   borrarItem()
   cambiarCantidad()
@@ -213,4 +251,3 @@ renderizarCarrito()
 
 
             
-

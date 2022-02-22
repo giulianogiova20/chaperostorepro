@@ -3,7 +3,7 @@
 		position: relative;
 		width: 100%;
 		height: auto;
-		background-color: #eee;
+		background-color: rgb(230, 230, 230);
 	}
 
 	html, body * {
@@ -15,6 +15,23 @@
 /* General */
 
 /* MIS CLASES */
+
+	.reparacion {
+		display: flex;
+		flex-direction: row;
+		
+	}
+	
+	.reparacion img {
+		margin-top: 20px;
+		border-radius: 10px;
+		width: 80%;
+	}
+
+	.reparacion:hover{
+		filter: grayscale(80%);
+		}
+
 	#popup {
 		position: absolute;
 		color: #00a1b4;
@@ -38,11 +55,22 @@
 		border: gray 4px solid;
 		border-radius: 30px;
 		text-align: center;
-		font-size: 6vh;
+		font-size: 5vh;
 		background: black;
 		width: 80%;
 		height: auto;
 		z-index: 200;
+	}
+
+	#no-disponible{
+		position: absolute;
+		top: 10px;
+		left: 15px;
+		width: 70%;
+		background: black;
+		color: white;
+		border: gray 3px solid;
+		border-radius: 30px;
 	}
 
 	.cantidad-carrito{
@@ -55,6 +83,10 @@
 		list-style: none;
 		font-size: medium;
 		z-index: 100;
+	}
+
+	.background-disabled{
+		background-color: rgb(5, 5, 104);
 	}
 
 	.input-radio label, .input-checkbox label {
@@ -87,6 +119,16 @@
 	
 	.input-radio input[type="radio"]:checked~.caption, .input-checkbox input[type="checkbox"]:checked~.caption {
 		max-height: 800px;
+	}
+
+
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #000;
+		background-color: rgb(230, 230, 230) !important;
+	}
+
+	.bkg-white{
+		background-color: white !important;
 	}
 
 /* END MIS CLASES */
@@ -412,7 +454,7 @@
 		left: 0;
 		width: 100%;
 		height: 1px;
-		background-color: #eee;
+		background-color: rgb(230, 230, 230);
 		z-index: 1;
 	}
 
@@ -440,8 +482,8 @@
 			display: block;
 			width: 100%;
 			height: auto;
-			border-top: 1px solid #eee;
-			border-bottom: 1px solid #eee;
+			border-top: 1px solid rgb(230, 230, 230);
+			border-bottom: 1px solid rgb(230, 230, 230);
 		}
 
 		footer .about .item {
@@ -479,7 +521,7 @@
 			display: block;
 			width: 100%;
 			height: auto;
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid rgb(230, 230, 230);
 		}
 
 		footer > .subscribe form {
@@ -1074,7 +1116,7 @@
 			/* Specifications */
 				.product .specification {
 					padding-top: 10px;
-					border-bottom: 1px solid #eee;
+					border-bottom: 1px solid rgb(230, 230, 230);
 
 					-webkit-transition: all 0.3s;
 					-moz-transition: all 0.3s;
@@ -1585,7 +1627,7 @@
 			margin: 0;
 			padding: 15px;
 			box-sizing: border-box;
-			background-color: #eee;
+			background-color: rgb(230, 230, 230);
 			z-index: 100;
 		}
 
@@ -1622,7 +1664,7 @@
 	/* Media */
 		.media{
 			position: relative;
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid rgb(230, 230, 230);
 			margin-top: 20px;
 			padding-bottom: 10px;
 		}
@@ -1876,8 +1918,8 @@
 		display: block;
 		width: 100%;
 		height: auto;
-		border-top: 1px solid #eee;
-		border-bottom: 1px solid #eee;
+		border-top: 1px solid rgb(230, 230, 230);
+		border-bottom: 1px solid rgb(230, 230, 230);
 	}
 
 	.features .item {
@@ -2277,6 +2319,10 @@
 
 
 @media (max-width: 767px) {
+	#popup2 {
+		font-size: 3vh;
+	}
+
 	/* Text */
 		h1, .h1{
 			font-size: 38px;
@@ -2521,7 +2567,7 @@
 				display: block;
 				width: 100%;
 				height: auto;
-				border-bottom: 1px solid #eee;
+				border-bottom: 1px solid rgb(230, 230, 230);
 			}
 
 			footer > .subscribe form {
@@ -2794,7 +2840,7 @@
 		/* Media */
 			.media{
 				position: relative;
-				border-bottom: 1px solid #eee;
+				border-bottom: 1px solid rgb(230, 230, 230);
 				margin-top: 20px;
 				padding-bottom: 10px;
 			}
@@ -2847,7 +2893,7 @@
 				margin: 0;
 				padding: 15px 0px;
 				box-sizing: border-box;
-				background-color: #eee;
+				background-color: rgb(230, 230, 230);
 				z-index: 100;
 			}
 		/* Checkout */
@@ -3133,7 +3179,7 @@
 
 	.black { background-color: rgba(0,0,0,0.5); }
 	.white { background-color: #fff; }
-	.gray { background-color: #eee; }
+	.gray { background-color: rgb(230, 230, 230); }
 	.color { background-color: #01B4E1; }
 
 	hr.offset-xxs{ border: none; background: transparent; margin: 0; padding: 0; width: 100%; height: 1px; }
@@ -3141,7 +3187,7 @@
 	hr.offset-sm{ border: none; background: transparent; margin: 0; padding: 0; width: 100%; height: 15px; }
 	hr.offset-md{ border: none; background: transparent; margin: 0; padding: 0; width: 100%; height: 25px; }
 	hr.offset-lg{ border: none; background: transparent; margin: 0; padding: 0; width: 100%; height: 35px; }
-	hr.offset-top{ border: none; background: #eee; margin: 0; padding: 0; width: 100%; height: 100px; }
+	hr.offset-top{ border: none; background: rgb(230, 230, 230); margin: 0; padding: 0; width: 100%; height: 100px; }
 
 
 	@media (max-width: 767px) {

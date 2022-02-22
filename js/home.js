@@ -15,22 +15,22 @@ const borrarItem = () => {
             e.stopPropagation() // Se detiene la propagacion del evento.
             let deleteItem = parseInt(btn.id) // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
             shopCartItems = JSON.parse(localStorage.getItem('shopCartItems')) // Se lee el array almacenado en el localStorage.
-            const DeleteItem = shopCartItems.findIndex(item => item.id === deleteItem);
+            const DeleteItem = shopCartItems.findIndex(item => item.id === deleteItem)
             shopCartItems.splice(DeleteItem, 1) // Se ejecuta el borrado.           
             localStorage.setItem('shopCartItems', JSON.stringify(shopCartItems)) // Se almacena el array con el item borrado. 
             renderizarCarrito() // Se recarga la pagina.  
         })
     })
-  }; 
+  } 
 
 
   //FUNCION PARA INCREMENTAR O DECREMENTAR LA CANTIDAD DE ITEMS MEDIANTE BOTONES
 const cambiarCantidad = () => {
-    const btnQuantity = document.querySelectorAll('.btn-cantidad');
+    const btnQuantity = document.querySelectorAll('.btn-cantidad')
     btnQuantity.forEach(btn => {   // Se recorren y se escucha si alguno fue pulsado
         btn.addEventListener('click', (e) => {  // Se escucha el evento click sobre el boton.
             e.stopPropagation() // Se detiene la propagacion del evento.
-            let itemChange = parseInt(btn.id); // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
+            let itemChange = parseInt(btn.id) // Se reconoce el boton pulsado por su numero de id. Coincidente con el código de producto.
             if (e.target.classList.contains('btn-sumar')) { // Se verifica si el boton fue pulsado para incrementar o decrementar.
                 shopCartItems = JSON.parse(localStorage.getItem('shopCartItems')) // Se lee el array almacenado en el localStorage.
                 const product = shopCartItems.find(item => item.id === itemChange)
@@ -49,7 +49,7 @@ const cambiarCantidad = () => {
         }
         )
     })
-};
+}
     
 const cantidadTotalProductos = () => {
   let cantidadTotal = 0
@@ -79,9 +79,9 @@ const renderizarCarrito = () => {
   } else {
     carroVacio.innerHTML = ``// Se oculta el alerta si el carrito no esta vacio.
     shopCartItems.forEach((item) => {
-      const { id, nombre, precio, imagen, tipo, cantidad } = item; // Se obtienen los datos del product.
-      const precioFormateado = darFormatoMoneda(precio, 0); // Se formatea el precio.
-      const precioPorCantidad = darFormatoMoneda(precio * cantidad, 0); // Se calcula el precio por cantidad.
+      const { id, nombre, precio, imagen, tipo, cantidad } = item // Se obtienen los datos del product.
+      const precioFormateado = darFormatoMoneda(precio, 0) // Se formatea el precio.
+      const precioPorCantidad = darFormatoMoneda(precio * cantidad, 0) // Se calcula el precio por cantidad.
       cartContainer.innerHTML += `
       <div class="media">
   
